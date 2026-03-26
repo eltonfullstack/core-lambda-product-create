@@ -1,4 +1,5 @@
 const esbuild = require('esbuild');
+const tsconfigPaths = require('esbuild-plugin-tsconfig-paths');
 
 esbuild.build({
   entryPoints: ['index.ts'],
@@ -8,4 +9,5 @@ esbuild.build({
   outfile: 'dist/index.js',
   sourcemap: true,
   minify: false,
+  plugins: [tsconfigPaths()],
 }).catch(() => process.exit(1));
