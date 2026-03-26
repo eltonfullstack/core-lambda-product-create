@@ -1,0 +1,56 @@
+# --------------------------
+# Node.js
+# --------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# package-lock.json
+
+/app/.env
+
+# -----------------------
+# TypeScript
+# ------------------------
+dist/
+*.tsbuildinfo
+
+# --------------------------
+# Lambda build
+# --------------------------
+app.zip
+
+# --------------------------
+# Terraform
+# --------------------------
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+terraform.tfvars
+terraform.tfvars.json
+override.tf
+override.tf.json
+
+# --------------------------
+# OS / Editor / IDEs
+# --------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --------------------------
+# Logs
+# --------------------------
+logs/
+*.log
+
+# --------------------------
+# CI/CD cache/temp
+# --------------------------
+.github/workflows/*.bak
+.gitlab-ci.yml.bak
