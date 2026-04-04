@@ -1,22 +1,12 @@
-import { ZodError, ZodIssue } from "zod"
+import { ZodError } from "zod"
+import { FieldError } from "@shared/response/response"
 
-export type FieldError = {
-  field: string
-  message: string
-}
-
-/**
- * Formata os erros do Zod para um padrão consistente.
- * @param error - instância de ZodError
- * @param inputData - objeto que foi validado
- * @returns FieldError[]
- */
 export const formatZodError = (
   error: ZodError,
-  inputData: Record<string, any> = {}
+  inputData: Record<string, unknown>
 ): FieldError[] => {
-  return error.issues.map((err: ZodIssue) => {
-    const field = err.path.join('.')
+  return error.issues.map((err) => {
+    const field = err.path.join(".")
     let message = err.message
 
     if (err.code === "invalid_type") {
@@ -31,7 +21,7 @@ export const formatZodError = (
 
     return {
       field,
-      message
+      message,
     }
   })
 }

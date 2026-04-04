@@ -1,10 +1,10 @@
-import { handler } from "../../main";
+import { handler } from "../../src/modules/product/infra/lambda/createProduct";
 
 const mockEvent = {
   body: JSON.stringify({
-    name: "Product 2",
-    price: 101,
-    quantity: 10,
+    name: "Product 3",
+    price: 103,
+    quantity: 30,
   }),
 };
 

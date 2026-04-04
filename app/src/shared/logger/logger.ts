@@ -1,17 +1,20 @@
-import pino from 'pino';
+import pino from 'pino'
+import pretty from 'pino-pretty'
 
-const logger = pino({
-  level: process.env.LOG_LEVEL || 'info',
-  transport:
-    process.env.NODE_ENV === 'local'
-      ? {
-          target: 'pino-pretty',
-          options: {
-            colorize: true,
-            ignore: 'pid,hostname',
-          },
-        }
-      : undefined,
-});
+const isLocal = process.env.NODE_ENV === 'local'
 
-export default logger;
+const stream = isLocal
+  ? pretty({
+      colorize: true,
+      ignore: 'pid,hostname',
+    })
+  : undefined
+
+const logger = pino(
+  {
+    level: process.env.LOG_LEVEL || 'info',
+  },
+  stream
+)
+
+export default logger
