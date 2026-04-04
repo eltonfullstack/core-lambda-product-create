@@ -1,0 +1,10 @@
+aws_region                      = "us-east-1"
+account_id                      = "051826705770"
+//vpce                            = ["vpc-0af186e3af681d13a"]
+//vpc_security_group_id           = ["sg-05b385a0b793602b4"]
+//vpc_subnet_ids                  = ["subnet-02289969ea774deb5", "subnet-0036f96fc6604aaf8"]
+NODE_ENV                        = "development"
+lambda_timeout                  = 29
+lambda_memory_size              = 128
+lambda_maximum_retry_attempts   = 3
+lambda_cloudwatch_log_retention = 1

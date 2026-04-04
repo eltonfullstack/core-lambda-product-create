@@ -1,13 +1,25 @@
-import { createProductUseCase } from "@modules/product/application/usecases/createProduct"
-import { productRepository } from "@modules/product/infra/database/productRepository"
-import logger from "@shared/logger/logger"
-import { createProductSchema } from "../validators/createProduct.schema"
+import { z } from 'zod'
 
-export const createController = async (data: any) => {
+import { createProductUseCase } from '@modules/product/application/usecases/createProduct'
+import { productRepository } from '@modules/product/infra/database/productRepository'
 
-    logger.info('Creating product')
+import { createProductSchema } from '../validators/createProduct.schema'
 
-    const parsed = createProductSchema.parse(data)
+import logger from '@shared/logger/logger'
+import { validate } from '../validators/validate'
+import { successResponse } from '@shared/response'
+import { parseBody } from '@modules/product/infra/http/parseCreateProductBody'
 
-    return createProductUseCase(productRepository, parsed)
+type CreateProductInput = z.infer<typeof createProductSchema>
+
+export const createProductController = async (event: any) => {
+  logger.info('Creating product')
+
+  const body = parseBody(event)
+
+  const data: CreateProductInput = validate(createProductSchema, body)
+
+  const product = await createProductUseCase(productRepository, data)
+
+  return successResponse(201, product)
 }

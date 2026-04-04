@@ -11,7 +11,7 @@ export const productRepository: ProductRepositoryPort = {
   async create(product: Product) {
     await docClient.send(
       new PutCommand({
-        TableName: TABLE,
+        TableName: "products",
         Item: product
       })
     )

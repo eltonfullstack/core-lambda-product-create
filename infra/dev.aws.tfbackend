@@ -1,0 +1,3 @@
+bucket = "lambda-product-create-terraform-dev"
+key = "lambda-product-create/terraform.tfstate"
+region = "us-east-1"

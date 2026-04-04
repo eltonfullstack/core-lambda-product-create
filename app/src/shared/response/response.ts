@@ -1,4 +1,4 @@
-export const successResponse = (statusCode: number, data: any) => ({
+export const successResponse = <T>(statusCode: number, data: T) => ({
   statusCode,
   body: JSON.stringify(data),
 });
