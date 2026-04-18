@@ -1,39 +1,26 @@
 // eslint.config.cjs
-const { FlatCompat } = require('@eslint/eslintrc');
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: true, // ⚠️ obrigatório
-});
+const js = require("@eslint/js");
+const tseslint = require("typescript-eslint");
 
 module.exports = [
-  // parser e regras para TS
+  js.configs.recommended,
+
+  ...tseslint.configs.recommended,
+
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ["**/*.ts"],
     languageOptions: {
-      parser: require.resolve('@typescript-eslint/parser'),
+      parser: tseslint.parser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: "./tsconfig.json",
         tsconfigRootDir: __dirname,
-        ecmaVersion: 2020,
-        sourceType: 'module',
-      },
-    },
-    plugins: {
-      '@typescript-eslint': typescriptPlugin,
+        sourceType: "module"
+      }
     },
     rules: {
-      'no-unused-vars': 'warn',
-      'no-console': 'off',
-      'semi': ['error', 'always'],
-    },
-  },
-
-  // estende configs recomendadas antigas com FlatCompat
-  ...compat.extends(
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier'
-  ),
+      "no-console": "off",
+      "no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
+  }
 ];
