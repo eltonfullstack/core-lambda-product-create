@@ -19,7 +19,7 @@ export const createProductController = async (event: any) => {
 
   const data: CreateProductInput = validate(createProductSchema, body)
 
-  const product = await createProductUseCase(productRepository, data)
+  await createProductUseCase(productRepository, data)
 
-  return successResponse(201, product)
+  return successResponse(201, "Product created", )
 }
