@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/createProduct.js",
   "scripts": {
+    "sast": "npm audit --audit-level=moderate",
     "test": "export NODE_ENV=local && jest",
     "tdd": "export NODE_ENV=local && jest --watch",
     "coverage": "export NODE_ENV=local && npm test -- --coverage",

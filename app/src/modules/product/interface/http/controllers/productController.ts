@@ -21,5 +21,5 @@ export const createProductController = async (event: any) => {
 
   await createProductUseCase(productRepository, data)
 
-  return successResponse(201, "Product created", )
+  return successResponse(201, `${data.name} was created`, )
 }
