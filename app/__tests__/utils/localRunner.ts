@@ -1,6 +1,7 @@
 import { handler } from "../../src/modules/product/infra/lambda/createProduct";
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
-const mockEvent = {
+const mockEvent: Partial<APIGatewayProxyEvent> = {
   body: JSON.stringify({
     name: "Product 3",
     price: 103,
@@ -8,10 +9,10 @@ const mockEvent = {
   }),
 };
 
-handler(mockEvent)
-  .then((res: any) => {
+handler(mockEvent as APIGatewayProxyEvent)
+  .then((res: APIGatewayProxyResult) => {
     console.log(JSON.stringify(res, null, 2));
   })
-  .catch((err: any) => {
+  .catch((err: unknown) => {
     console.log("err", err);
   });
