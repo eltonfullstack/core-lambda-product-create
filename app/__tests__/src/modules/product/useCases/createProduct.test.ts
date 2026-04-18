@@ -7,7 +7,6 @@ jest.mock("uuid", () => ({
   v4: () => "fixed-id"
 }))
 
-// mock da validação do domínio
 jest.spyOn(productDomain, "validateProduct").mockImplementation(jest.fn())
 
 describe("createProductUseCase", () => {
