@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -89,52 +89,52 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { z } from 'zod'
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { createProductUseCase } from '@modules/product/application/usecases/createProduct'</span>
-<span class="cstat-no" title="statement not covered" >import { productRepository } from '@modules/product/infra/database/productRepository'</span>
+import { createProductUseCase } from '../../../../product/application/usecases/createProduct'
+import { productRepository } from '../../../../product/infra/database/productRepository'
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { createProductSchema } from '../validators/createProduct.schema'</span>
+import { createProductSchema } from '../validators/createProduct.schema'
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import logger from '@shared/logger/logger'</span>
-<span class="cstat-no" title="statement not covered" >import { validate } from '../validators/validate'</span>
-<span class="cstat-no" title="statement not covered" >import { successResponse } from '@shared/response'</span>
-<span class="cstat-no" title="statement not covered" >import { parseBody } from '@modules/product/infra/http/parseCreateProductBody'</span>
+import logger from '../../../../../shared/logger/logger'
+import { validate } from '../validators/validate'
+import { successResponse } from '../../../../../shared/response'
+import { parseBody } from '../../../../product/infra/http/parseCreateProductBody'
 &nbsp;
 type CreateProductInput = z.infer&lt;typeof createProductSchema&gt;
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >createProductController = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(event: any) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  logger.info('Creating product')</span>
+export const createProductController = async (event: any) =&gt; {
+  logger.info('Creating product')
 &nbsp;
-  const body = <span class="cstat-no" title="statement not covered" >parseBody(event)</span>
+  const body = parseBody(event)
 &nbsp;
-  const data: CreateProductInput = <span class="cstat-no" title="statement not covered" >validate(createProductSchema, body)</span>
+  const data: CreateProductInput = validate(createProductSchema, body)
 &nbsp;
-  const product = <span class="cstat-no" title="statement not covered" >await createProductUseCase(productRepository, data)</span>
+  await createProductUseCase(productRepository, data)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return successResponse(201, product)</span>
+  return successResponse(201, `${data.name} was created`, )
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -142,7 +142,7 @@ export const <span class="cstat-no" title="statement not covered" >createProduct
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-18T16:10:57.589Z
+                at 2026-04-19T20:45:59.460Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

@@ -1,5 +1,3 @@
-
-
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 module.exports = {
   verbose: true,
@@ -15,14 +13,14 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
 
-  collectCoverage: true, // ativar cobertura
+  collectCoverage: true,
 
   coverageThreshold: {
     global: {
-      statements: 1,
-      branches: 0,
-      functions: 1,
-      lines: 1,
+      statements: 90,
+      branches: 90,
+      functions: 90,
+      lines: 90,
     },
   },
 
@@ -33,6 +31,10 @@ module.exports = {
     "!**/node_modules/**",
     "!**/vendor/**",
     "!**/coverage/**",
+
+    // 🔥 ADIÇÕES IMPORTANTES
+    "!**/index.ts",
+    "!**/*.d.ts",
   ],
 
   coveragePathIgnorePatterns: [
@@ -45,7 +47,7 @@ module.exports = {
   ],
 
   testMatch: [
-    "**/__test__/**/*.(ts|tsx|js|jsx)?",
+    "**/__tests__/**/*.(ts|tsx|js|jsx)?",
     "**/?(*.)+(spec|test).(ts|tsx|js|jsx)",
   ],
 };

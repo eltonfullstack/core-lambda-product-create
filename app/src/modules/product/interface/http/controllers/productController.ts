@@ -1,14 +1,14 @@
 import { z } from 'zod'
 
-import { createProductUseCase } from '@modules/product/application/usecases/createProduct'
-import { productRepository } from '@modules/product/infra/database/productRepository'
+import { createProductUseCase } from '../../../../product/application/usecases/createProduct'
+import { productRepository } from '../../../../product/infra/database/productRepository'
 
 import { createProductSchema } from '../validators/createProduct.schema'
 
-import logger from '@shared/logger/logger'
+import logger from '../../../../../shared/logger/logger'
 import { validate } from '../validators/validate'
-import { successResponse } from '@shared/response'
-import { parseBody } from '@modules/product/infra/http/parseCreateProductBody'
+import { successResponse } from '../../../../../shared/response'
+import { parseBody } from '../../../../product/infra/http/parseCreateProductBody'
 
 type CreateProductInput = z.infer<typeof createProductSchema>
 

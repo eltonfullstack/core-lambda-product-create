@@ -1,5 +1,5 @@
 import { ZodError } from "zod"
-import { FieldError } from "@shared/response/response"
+import { FieldError } from "../../shared/response/response"
 
 export const formatZodError = (
   error: ZodError,

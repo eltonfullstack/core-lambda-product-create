@@ -1,5 +1,5 @@
-import { errorResponse } from '@shared/response'
-import { formatZodError } from '@shared/utils/zodErrorFormatter'
+import { errorResponse } from '../../../../../shared/response/response'
+import { formatZodError } from '../../../../../shared/utils/zodErrorFormatter'
 import { ZodError } from 'zod'
 
 export function handleHttpError(error: any, body?: any) {
