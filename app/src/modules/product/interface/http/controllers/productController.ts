@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 
 import { createProductUseCase } from '../../../../product/application/usecases/createProduct'
 import { productRepository } from '../../../../product/infra/database/productRepository'

@@ -1,62 +1,42 @@
 const js = require("@eslint/js");
 const tseslint = require("typescript-eslint");
+const jest = require("eslint-plugin-jest");
 
 module.exports = [
-  // 🚫 IGNORAR tudo que não deve ser analisado
-  {
-    ignores: [
-      "node_modules/**",
-      "dist/**",
-      "coverage/**",
-      "**/*.config.js",
-      "**/*.config.cjs",
-      ".eslintrc.js"
-    ]
-  },
-
-  // 📦 Regras base JS + TS
   js.configs.recommended,
+
   ...tseslint.configs.recommended,
 
-  // 🟦 TYPE SCRIPT (SÓ src)
   {
-    files: ["src/**/*.ts"],
+    files: ["**/*.ts"],
+
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: "./tsconfig.json",
-        tsconfigRootDir: __dirname,
-        sourceType: "commonjs"
-      },
-      globals: {
-        console: "readonly",
-        process: "readonly",
-        __dirname: "readonly"
+        project: "./tsconfig.eslint.json"
       }
     },
+
+    plugins: {
+      jest
+    },
+
     rules: {
-      "@typescript-eslint/no-require-imports": "off",
-      "no-undef": "error",
-      "@typescript-eslint/no-explicit-any": "warn"
+      "no-console": "off",
+
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/consistent-type-imports": "error",
+
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "warn"
     }
   },
 
-  // 🟨 JS / CONFIG FILES (SEM TS PROJECT)
   {
-    files: ["**/*.js", "**/*.cjs"],
-    languageOptions: {
-      sourceType: "commonjs",
-      globals: {
-        console: "readonly",
-        process: "readonly",
-        __dirname: "readonly",
-        module: "readonly",
-        require: "readonly"
-      }
-    },
+    files: ["**/*.test.ts", "**/*.spec.ts", "**/__tests__/**/*.ts"],
     rules: {
-      "@typescript-eslint/no-require-imports": "off",
-      "no-undef": "off"
+      "@typescript-eslint/no-explicit-any": "off"
     }
   }
 ];

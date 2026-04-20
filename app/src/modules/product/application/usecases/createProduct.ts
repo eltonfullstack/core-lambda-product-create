@@ -1,6 +1,7 @@
 import { v4 as uuid } from "uuid"
-import { Product, validateProduct } from "../../../product/domain/product"
-import { ProductRepositoryPort } from "../../../product/application/ports/product.repository.port"
+import type { Product} from "../../../product/domain/product";
+import { validateProduct } from "../../../product/domain/product"
+import type { ProductRepositoryPort } from "../../../product/application/ports/product.repository.port"
 
 export const createProductUseCase = async (repository: ProductRepositoryPort, data: Omit<Product, "id">) => {
   
