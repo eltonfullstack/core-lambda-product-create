@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1776651004764" clover="3.2.0">
-  <project timestamp="1776651004765" name="All files">
-    <metrics statements="68" coveredstatements="66" conditionals="16" coveredconditionals="16" methods="12" coveredmethods="11" elements="96" coveredelements="93" complexity="0" loc="68" ncloc="68" packages="10" files="11" classes="11"/>
+<coverage generated="1776726911063" clover="3.2.0">
+  <project timestamp="1776726911063" name="All files">
+    <metrics statements="74" coveredstatements="72" conditionals="20" coveredconditionals="19" methods="12" coveredmethods="11" elements="106" coveredelements="102" complexity="0" loc="74" ncloc="74" packages="11" files="12" classes="12"/>
     <package name="modules.product.application.usecases">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="createProduct.ts" path="/Users/developer/development/infra/aws/lambda/typescript/hexagonal-architecture/core-lambda-product-create/app/src/modules/product/application/usecases/createProduct.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
     </package>
     <package name="modules.product.domain">
@@ -106,6 +106,18 @@
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.logger">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="0" coveredmethods="0"/>
+      <file name="logger.ts" path="/Users/developer/development/infra/aws/lambda/typescript/hexagonal-architecture/core-lambda-product-create/app/src/shared/logger/logger.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
       </file>
     </package>
     <package name="shared.response">

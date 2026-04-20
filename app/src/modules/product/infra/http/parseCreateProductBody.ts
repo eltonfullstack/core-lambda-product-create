@@ -1,4 +1,8 @@
-export function parseBody(event: any) {
+type EventWithBody = {
+  body?: string | Record<string, unknown>
+} & Record<string, unknown>
+
+export function parseBody(event: EventWithBody) {
   if (event?.body) {
     const parsed =
       typeof event.body === 'string'
