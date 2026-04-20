@@ -11,7 +11,8 @@
     "lint:fix": "eslint src --ext .ts --fix",
     "dev": "cross-env NODE_ENV=local nodemon --exec ts-node -r tsconfig-paths/register ./__tests__/utils/localRunner.ts",
     "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/index.js",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "sast": "pnpm audit --audit-level=moderate"
   },
   "packageManager": "pnpm@9.0.0",
   "devDependencies": {
