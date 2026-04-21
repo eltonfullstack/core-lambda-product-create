@@ -1,64 +1,62 @@
-import { PutCommand } from '@aws-sdk/lib-dynamodb';
-
-const sendMock = jest.fn();
+const sendMock = jest.fn()
 
 jest.mock('@aws-sdk/lib-dynamodb', () => {
-  const sendMockLocal = jest.fn();
+  const actual = jest.requireActual('@aws-sdk/lib-dynamodb')
 
   return {
+    ...actual,
     DynamoDBDocumentClient: {
       from: jest.fn(() => ({
-        send: sendMockLocal,
+        send: sendMock,
       })),
     },
-    PutCommand: jest.fn((input) => ({
-      input,
-    })),
-    __sendMock: sendMockLocal,
-  };
-});
+    PutCommand: jest.fn((input) => input),
+  }
+})
 
-// 🔥 IMPORT DEPOIS DO MOCK
-import { productRepository } from '../../../../../../src/modules/product/infra/database/productRepository';
+// ⚠️ IMPORTANTE: env antes do import
+process.env.TABLE_NAME = 'products'
 
-const { __sendMock } = require('@aws-sdk/lib-dynamodb');
+// 🔥 IMPORT depois do mock
+import { productRepository } from '../../../../../../src/modules/product/infra/database/productRepository'
+import { PutCommand } from '@aws-sdk/lib-dynamodb'
 
 describe('productRepository', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
   it('should send PutCommand to DynamoDB', async () => {
-    __sendMock.mockResolvedValue({});
+    sendMock.mockResolvedValue({})
 
     const product = {
       id: '1',
       name: 'Mouse',
       price: 100,
       quantity: 2,
-    };
+    }
 
-    await productRepository.create(product);
+    await productRepository.create(product)
 
     expect(PutCommand).toHaveBeenCalledWith({
       TableName: 'products',
       Item: product,
-    });
+    })
 
-    expect(__sendMock).toHaveBeenCalledTimes(1);
-  });
+    expect(sendMock).toHaveBeenCalledTimes(1)
+  })
 
   it('should throw if DynamoDB fails', async () => {
-    __sendMock.mockRejectedValue(new Error('Dynamo error'));
+    sendMock.mockRejectedValue(new Error('Dynamo error'))
 
     const product = {
       id: '1',
       name: 'Keyboard',
       price: 200,
       quantity: 1,
-    };
+    }
 
     await expect(productRepository.create(product))
-      .rejects.toThrow('Dynamo error');
-  });
-});
+      .rejects.toThrow('Dynamo error')
+  })
+})
