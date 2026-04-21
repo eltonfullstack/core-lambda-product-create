@@ -11,5 +11,7 @@ function getEnv(name: string): string {
 }
 
 export const env = {
-  PRODUCT_TABLE: getEnv('TABLE_NAME'),
+  get PRODUCT_TABLE() {
+    return getEnv('TABLE_NAME')
+  },
 }
