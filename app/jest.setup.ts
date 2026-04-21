@@ -1,0 +1,1 @@
+process.env.PRODUCT_TABLE = 'test-products'

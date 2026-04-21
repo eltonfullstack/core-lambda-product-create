@@ -13,6 +13,8 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
 
+  setupFiles: ["<rootDir>/jest.setup.ts"],
+
   collectCoverage: true,
 
   coverageThreshold: {
@@ -32,7 +34,6 @@ module.exports = {
     "!**/vendor/**",
     "!**/coverage/**",
 
-    // 🔥 ADIÇÕES IMPORTANTES
     "!**/index.ts",
     "!**/*.d.ts",
   ],

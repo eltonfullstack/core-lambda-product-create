@@ -48,7 +48,7 @@ describe('productRepository', () => {
     expect(__sendMock).toHaveBeenCalledTimes(1);
   });
 
-  xit('should throw if DynamoDB fails', async () => {
+  it('should throw if DynamoDB fails', async () => {
     __sendMock.mockRejectedValue(new Error('Dynamo error'));
 
     const product = {
