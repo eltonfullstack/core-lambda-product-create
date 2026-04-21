@@ -20,6 +20,8 @@ export const createProductController = async (
 
   const body = parseBody(event)
 
+  logger.info("DADOS DE ENTRADA CONTROLLER", body)
+
   const data: CreateProductInput = validate(createProductSchema, body)
 
   await createProductUseCase(productRepository, data)
