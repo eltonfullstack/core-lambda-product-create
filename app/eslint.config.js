@@ -1,26 +1,24 @@
-const js = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const jest = require("eslint-plugin-jest");
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
+import jest from "eslint-plugin-jest";
 
-module.exports = [
+export default [
   js.configs.recommended,
 
   ...tseslint.configs.recommended,
 
   {
     files: ["**/*.ts"],
-
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: "./tsconfig.eslint.json"
+        project: "./tsconfig.eslint.json",
+        tsconfigRootDir: import.meta.dirname
       }
     },
-
     plugins: {
       jest
     },
-
     rules: {
       "no-console": "off",
 

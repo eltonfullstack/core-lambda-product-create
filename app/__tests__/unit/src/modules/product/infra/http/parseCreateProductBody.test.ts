@@ -1,5 +1,5 @@
 import type { APIGatewayProxyEvent } from "aws-lambda";
-import { parseBody } from "../../../../../../src/modules/product/infra/http/parseCreateProductBody";
+import { parseBody } from "../../../../../../../src/modules/product/infra/http/parseCreateProductBody";
 
 describe("parseBody", () => {
   it("should parse body when it is a valid JSON string", () => {

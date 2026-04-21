@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { formatZodError } from '../../../../src/shared/utils/zodErrorFormatter';
+import { formatZodError } from '../../../../../src/shared/utils/zodErrorFormatter';
 
 describe('formatZodError', () => {
   it('should format zod error', () => {

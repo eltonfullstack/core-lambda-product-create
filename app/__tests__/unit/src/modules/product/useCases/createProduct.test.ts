@@ -1,6 +1,6 @@
-import { createProductUseCase } from "../../../../../src/modules/product/application/usecases/createProduct"
-import { ProductRepositoryPort } from "../../../../../src/modules/product/application/ports/product.repository.port"
-import * as productDomain from "../../../../../src/modules/product/domain/product"
+import { createProductUseCase } from "../../../../../../src/modules/product/application/usecases/createProduct"
+import { ProductRepositoryPort } from "../../../../../../src/modules/product/application/ports/product.repository.port"
+import * as productDomain from "../../../../../../src/modules/product/domain/product"
 
 // mock do uuid (sem alterar produção)
 jest.mock("uuid", () => ({

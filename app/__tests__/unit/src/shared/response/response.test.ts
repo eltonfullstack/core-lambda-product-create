@@ -1,4 +1,4 @@
-import { successResponse, errorResponse } from '../../../../src/shared/response/response';
+import { successResponse, errorResponse } from '../../../../../src/shared/response/response';
 
 describe('response utils', () => {
   it('should create success response with JSON body', () => {

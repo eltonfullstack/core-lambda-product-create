@@ -1,4 +1,4 @@
-import { validateProduct, Product } from '../../../../../src/modules/product/domain/product';
+import { validateProduct, Product } from '../../../../../../src/modules/product/domain/product';
 
 describe('Product Domain - validateProduct', () => {
   const validProduct: Product = {

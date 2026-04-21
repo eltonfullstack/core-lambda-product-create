@@ -1,13 +1,13 @@
 import type { APIGatewayProxyEvent } from 'aws-lambda';
-import { handler } from '../../../../../../src/modules/product/infra/lambda/createProduct';
-import { createProductController } from '../../../../../../src/modules/product/interface/http/controllers/productController';
-import { handleHttpError } from '../../../../../../src/modules/product/interface/http/errors/handleHttpError';
+import { handler } from '../../../../../../../src/modules/product/infra/lambda/createProduct';
+import { createProductController } from '../../../../../../../src/modules/product/interface/http/controllers/productController';
+import { handleHttpError } from '../../../../../../../src/modules/product/interface/http/errors/handleHttpError';
 
-jest.mock('../../../../../../src/modules/product/interface/http/controllers/productController', () => ({
+jest.mock('../../../../../../../src/modules/product/interface/http/controllers/productController', () => ({
   createProductController: jest.fn(),
 }));
 
-jest.mock('../../../../../../src/modules/product/interface/http/errors/handleHttpError', () => ({
+jest.mock('../../../../../../../src/modules/product/interface/http/errors/handleHttpError', () => ({
   handleHttpError: jest.fn(),
 }));
 

@@ -1,13 +1,13 @@
-import { handleHttpError } from '../../../../../../../src/modules/product/interface/http/errors/handleHttpError';
-import { errorResponse } from '../../../../../../../src/shared/response/response';
-import { formatZodError } from '../../../../../../../src/shared/utils/zodErrorFormatter';
+import { handleHttpError } from '../../../../../../../../src/modules/product/interface/http/errors/handleHttpError';
+import { errorResponse } from '../../../../../../../../src/shared/response/response';
+import { formatZodError } from '../../../../../../../../src/shared/utils/zodErrorFormatter';
 import { ZodError } from 'zod';
 
-jest.mock('../../../../../../../src/shared/response/response', () => ({
+jest.mock('../../../../../../../../src/shared/response/response', () => ({
   errorResponse: jest.fn(),
 }));
 
-jest.mock('../../../../../../../src/shared/utils/zodErrorFormatter', () => ({
+jest.mock('../../../../../../../../src/shared/utils/zodErrorFormatter', () => ({
   formatZodError: jest.fn(),
 }));
 

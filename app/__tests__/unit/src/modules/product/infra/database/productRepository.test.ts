@@ -14,11 +14,11 @@ jest.mock('@aws-sdk/lib-dynamodb', () => {
   }
 })
 
-// ⚠️ IMPORTANTE: env antes do import
+// env antes do import
 process.env.TABLE_NAME = 'products'
 
-// 🔥 IMPORT depois do mock
-import { productRepository } from '../../../../../../src/modules/product/infra/database/productRepository'
+// IMPORT depois do mock
+import { productRepository } from '../../../../../../../src/modules/product/infra/database/productRepository'
 import { PutCommand } from '@aws-sdk/lib-dynamodb'
 
 describe('productRepository', () => {

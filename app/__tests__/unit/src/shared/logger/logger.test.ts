@@ -14,7 +14,7 @@ describe('logger', () => {
     process.env.NODE_ENV = 'local';
     process.env.LOG_LEVEL = 'debug';
 
-    const logger = require('../../../../src/shared/logger/logger').default;
+    const logger = require('../../../../../src/shared/logger/logger').default;
 
     expect(logger).toBeDefined();
     expect(typeof logger.info).toBe('function');
@@ -25,7 +25,7 @@ describe('logger', () => {
     process.env.NODE_ENV = 'production';
     process.env.LOG_LEVEL = 'info';
 
-    const logger = require('../../../../src/shared/logger/logger').default;
+    const logger = require('../../../../../src/shared/logger/logger').default;
 
     expect(logger).toBeDefined();
     expect(typeof logger.info).toBe('function');

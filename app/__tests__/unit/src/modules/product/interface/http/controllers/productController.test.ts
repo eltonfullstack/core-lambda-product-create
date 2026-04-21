@@ -1,31 +1,31 @@
-import { createProductController } from '../../../../../../../src/modules/product/interface/http/controllers/productController'; // Importa o controlador de criação de produtomodules/product/interface/http/controllers/productController';
-import { createProductUseCase } from '../../../../../../../src/modules/product/application/usecases/createProduct';
-import { validate } from '../../../../../../../src/modules/product/interface/http/validators/validate';
-import { parseBody } from '../../../../../../../src/modules/product/infra/http/parseCreateProductBody';
-import { successResponse } from '../../../../../../../src/shared/response';
+import { createProductController } from '../../../../../../../../src/modules/product/interface/http/controllers/productController'; // Importa o controlador de criação de produtomodules/product/interface/http/controllers/productController';
+import { createProductUseCase } from '../../../../../../../../src/modules/product/application/usecases/createProduct';
+import { validate } from '../../../../../../../../src/modules/product/interface/http/validators/validate';
+import { parseBody } from '../../../../../../../../src/modules/product/infra/http/parseCreateProductBody';
+import { successResponse } from '../../../../../../../../src/shared/response';
 import type { APIGatewayProxyEvent } from 'aws-lambda';
 
-jest.mock('../../../../../../../src/modules/product/application/usecases/createProduct', () => ({
+jest.mock('../../../../../../../../src/modules/product/application/usecases/createProduct', () => ({
   createProductUseCase: jest.fn(),
 }));
 
-jest.mock('../../../../../../../src/modules/product/infra/database/productRepository', () => ({
+jest.mock('../../../../../../../../src/modules/product/infra/database/productRepository', () => ({
   productRepository: {},
 }));
 
-jest.mock('../../../../../../../src/modules/product/interface/http/validators/validate', () => ({
+jest.mock('../../../../../../../../src/modules/product/interface/http/validators/validate', () => ({
   validate: jest.fn(),
 }));
 
-jest.mock('../../../../../../../src/modules/product/infra/http/parseCreateProductBody', () => ({
+jest.mock('../../../../../../../../src/modules/product/infra/http/parseCreateProductBody', () => ({
   parseBody: jest.fn(),
 }));
 
-jest.mock('../../../../../../../src/shared/response', () => ({
+jest.mock('../../../../../../../../src/shared/response', () => ({
   successResponse: jest.fn(),
 }));
 
-jest.mock('../../../../../../../src/shared/logger/logger', () => ({
+jest.mock('../../../../../../../../src/shared/logger/logger', () => ({
   info: jest.fn(),
 }));
 
