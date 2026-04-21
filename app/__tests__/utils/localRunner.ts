@@ -1,5 +1,5 @@
 import { handler } from "../../src/modules/product/infra/lambda/createProduct";
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import type { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
 const mockEvent: Partial<APIGatewayProxyEvent> = {
   body: JSON.stringify({
