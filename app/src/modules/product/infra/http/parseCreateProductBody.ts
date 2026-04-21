@@ -4,7 +4,7 @@ export function parseBody<T = Record<string, unknown>>(
   event: APIGatewayProxyEvent
 ): T {
   if (!event.body) {
-    throw new Error('Missing body')
+    throw new Error('Invalid body')
   }
 
   let parsed: unknown

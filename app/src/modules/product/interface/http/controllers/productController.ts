@@ -20,7 +20,7 @@ export const createProductController = async (
 
   const body = parseBody(event)
 
-  logger.info("DADOS DE ENTRADA CONTROLLER", body)
+  logger.info("DADOS DE ENTRADA CONTROLLER", body as any)
 
   const data: CreateProductInput = validate(createProductSchema, body)
 

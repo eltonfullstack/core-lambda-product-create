@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1776776256211" clover="3.2.0">
-  <project timestamp="1776776256211" name="All files">
-    <metrics statements="78" coveredstatements="75" conditionals="20" coveredconditionals="19" methods="12" coveredmethods="11" elements="110" coveredelements="105" complexity="0" loc="78" ncloc="78" packages="11" files="12" classes="12"/>
+<coverage generated="1776777156205" clover="3.2.0">
+  <project timestamp="1776777156205" name="All files">
+    <metrics statements="77" coveredstatements="74" conditionals="20" coveredconditionals="18" methods="12" coveredmethods="11" elements="109" coveredelements="103" complexity="0" loc="77" ncloc="77" packages="11" files="12" classes="12"/>
     <package name="modules.product.application.usecases">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="createProduct.ts" path="/Users/developer/development/infra/aws/lambda/typescript/hexagonal-architecture/core-lambda-product-create/app/src/modules/product/application/usecases/createProduct.ts">
@@ -37,31 +37,30 @@
       </file>
     </package>
     <package name="modules.product.infra.http">
-      <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="parseCreateProductBody.ts" path="/Users/developer/development/infra/aws/lambda/typescript/hexagonal-architecture/core-lambda-product-create/app/src/modules/product/infra/http/parseCreateProductBody.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="8" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="4" type="cond" truecount="3" falsecount="0"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="6" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="4" type="cond" truecount="3" falsecount="0"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
       </file>
     </package>
     <package name="modules.product.infra.lambda">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="createProduct.ts" path="/Users/developer/development/infra/aws/lambda/typescript/hexagonal-architecture/core-lambda-product-create/app/src/modules/product/infra/lambda/createProduct.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="modules.product.interface.http.controllers">
@@ -113,15 +112,15 @@
       </file>
     </package>
     <package name="shared.logger">
-      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="0" coveredmethods="0"/>
       <file name="logger.ts" path="/Users/developer/development/infra/aws/lambda/typescript/hexagonal-architecture/core-lambda-product-create/app/src/shared/logger/logger.ts">
-        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
       </file>
     </package>
     <package name="shared.response">
