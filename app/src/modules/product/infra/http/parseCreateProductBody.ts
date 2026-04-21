@@ -3,26 +3,25 @@ import type { APIGatewayProxyEvent } from 'aws-lambda'
 export function parseBody<T = Record<string, unknown>>(
   event: APIGatewayProxyEvent
 ): T {
-  console.log('BODY:', event.body)
-  if (!event.body) {
-    throw new Error('Invalid body')
+  const body = event.body
+
+  if (!body) {
+    throw new Error('Missing body')
   }
 
-  let parsed: unknown = event.body
-
-  // caso AWS padrão (string)
-  if (typeof event.body === 'string') {
+  // caso 1: AWS padrão (string JSON)
+  if (typeof body === 'string') {
     try {
-      parsed = JSON.parse(event.body)
+      return JSON.parse(body) as T
     } catch {
       throw new Error('Invalid JSON body')
     }
   }
 
-  // caso já venha objeto (Postman / mock / API Gateway mal configurado)
-  if (typeof parsed !== 'object' || parsed === null) {
-    throw new Error('Invalid body format')
+  // caso 2: já veio objeto (Postman / mock / gateway alterado)
+  if (typeof body === 'object') {
+    return body as T
   }
 
-  return parsed as T
+  throw new Error('Invalid body format')
 }
