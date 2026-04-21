@@ -13,6 +13,7 @@ export const handler = async (
     
     return await createProductController(event)
   } catch (error) {
+    logger.error("ERROR HANDLER", error as any)
     return handleHttpError(error)
   }
 }
