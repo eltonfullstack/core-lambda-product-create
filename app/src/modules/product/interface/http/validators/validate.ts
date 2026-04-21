@@ -1,5 +1,5 @@
-import type { ZodSchema } from 'zod'
+import type { ZodType } from 'zod'
 
-export function validate<T>(schema: ZodSchema<T>, data: unknown): T {
+export function validate<T>(schema: ZodType<T>, data: unknown): T {
   return schema.parse(data)
 }

@@ -5,13 +5,13 @@ import type { Product } from "@modules/product/domain/product"
 
 const client = new DynamoDBClient({ region: "us-east-1" })
 const docClient = DynamoDBDocumentClient.from(client)
-// const TABLE = process.env.PRODUCT_TABLE
+const TABLE = process.env.PRODUCT_TABLE
 
 export const productRepository: ProductRepositoryPort = {
   async create(product: Product) {
     await docClient.send(
       new PutCommand({
-        TableName: "products",
+        TableName: TABLE,
         Item: product
       })
     )
