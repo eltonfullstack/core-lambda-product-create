@@ -1,4 +1,5 @@
 import type { z } from 'zod'
+import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 
 import { createProductUseCase } from '../../../../product/application/usecases/createProduct'
 import { productRepository } from '../../../../product/infra/database/productRepository'
@@ -12,7 +13,9 @@ import { parseBody } from '../../../../product/infra/http/parseCreateProductBody
 
 type CreateProductInput = z.infer<typeof createProductSchema>
 
-export const createProductController = async (event: any) => {
+export const createProductController = async (
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> => {
   logger.info('Creating product')
 
   const body = parseBody(event)
@@ -21,5 +24,5 @@ export const createProductController = async (event: any) => {
 
   await createProductUseCase(productRepository, data)
 
-  return successResponse(201, `${data.name} was created`, )
+  return successResponse(201, `${data.name} was created`)
 }

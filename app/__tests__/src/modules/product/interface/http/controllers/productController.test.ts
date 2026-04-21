@@ -3,6 +3,7 @@ import { createProductUseCase } from '../../../../../../../src/modules/product/a
 import { validate } from '../../../../../../../src/modules/product/interface/http/validators/validate';
 import { parseBody } from '../../../../../../../src/modules/product/infra/http/parseCreateProductBody';
 import { successResponse } from '../../../../../../../src/shared/response';
+import type { APIGatewayProxyEvent } from 'aws-lambda';
 
 jest.mock('../../../../../../../src/modules/product/application/usecases/createProduct', () => ({
   createProductUseCase: jest.fn(),
@@ -53,12 +54,12 @@ describe('createProductController', () => {
       body: 'ok',
     });
 
-    const result = await createProductController(event);
+    const result = await createProductController(event as APIGatewayProxyEvent);
 
     expect(parseBody).toHaveBeenCalledWith(event);
     expect(validate).toHaveBeenCalled();
     expect(createProductUseCase).toHaveBeenCalledWith(
-      expect.any(Object), // productRepository
+      expect.any(Object),
       validatedData
     );
     expect(successResponse).toHaveBeenCalledWith(
@@ -77,7 +78,7 @@ describe('createProductController', () => {
       throw new Error('parse error');
     });
 
-    await expect(createProductController(event))
+    await expect(createProductController(event as APIGatewayProxyEvent))
       .rejects.toThrow('parse error');
   });
 
@@ -87,7 +88,7 @@ describe('createProductController', () => {
       throw new Error('validation error');
     });
 
-    await expect(createProductController(event))
+    await expect(createProductController(event as APIGatewayProxyEvent))
       .rejects.toThrow('validation error');
   });
 
@@ -98,7 +99,7 @@ describe('createProductController', () => {
       new Error('usecase error')
     );
 
-    await expect(createProductController(event))
+    await expect(createProductController(event as APIGatewayProxyEvent))
       .rejects.toThrow('usecase error');
   });
 });

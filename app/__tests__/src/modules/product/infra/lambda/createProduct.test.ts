@@ -1,3 +1,4 @@
+import type { APIGatewayProxyEvent } from 'aws-lambda';
 import { handler } from '../../../../../../src/modules/product/infra/lambda/createProduct';
 import { createProductController } from '../../../../../../src/modules/product/interface/http/controllers/productController';
 import { handleHttpError } from '../../../../../../src/modules/product/interface/http/errors/handleHttpError';
@@ -29,7 +30,7 @@ describe('Lambda createProduct handler', () => {
 
     (createProductController as jest.Mock).mockResolvedValue(mockResponse);
 
-    const result = await handler(event);
+    const result = await handler(event as APIGatewayProxyEvent);
 
     expect(createProductController).toHaveBeenCalledWith(event);
     expect(result).toEqual(mockResponse);
@@ -45,7 +46,7 @@ describe('Lambda createProduct handler', () => {
     (createProductController as jest.Mock).mockRejectedValue(error);
     (handleHttpError as jest.Mock).mockReturnValue(errorResponse);
 
-    const result = await handler(event);
+    const result = await handler(event as APIGatewayProxyEvent);
 
     expect(createProductController).toHaveBeenCalledWith(event);
     expect(handleHttpError).toHaveBeenCalledWith(error);
