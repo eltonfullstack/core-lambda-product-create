@@ -3,6 +3,7 @@ import type { APIGatewayProxyEvent } from 'aws-lambda'
 export function parseBody<T = Record<string, unknown>>(
   event: APIGatewayProxyEvent
 ): T {
+  console.log('BODY:', event.body)
   if (!event.body) {
     throw new Error('Invalid body')
   }
